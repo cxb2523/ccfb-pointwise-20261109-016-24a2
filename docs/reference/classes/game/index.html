@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title> </title>
+
+  <link type="text/css" rel="stylesheet" href="/css/24a2.css" />
+</head>
+
+  <body>
+    <h1></h1>
+    <div class="with-sidebar">
+      <div>
+        
+        <div class="sidebar">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/games">Examples</a></li>
+    <li><a href="/tutorial">Tutorial</a></li>
+    <li><a href="/reference">Reference</a></li>
+    <li>
+      <a
+        href="https://github.com/jamesroutley/24a2"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Source code</a
+      >
+    </li>
+  </ul>
+</div>
+
+        <div>
+          <main> <p><a href="../../"><strong>24a2</strong></a></p>
+<hr>
+<h1 id="class-game">Class: Game</h1>
+<p>Game is the object that controls the actual running of the game. You
+create a new one by passing in a <a href="../../interfaces/GameConfig">GameConfig</a>. Calling <code>game.run()</code>
+will start the game.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00f">let</span> config = {
+</span></span><span style="display:flex;"><span>   create: create, <span style="color:#008000">// A function you&#39;ve defined
+</span></span></span><span style="display:flex;"><span>   update: update, <span style="color:#008000">// A function you&#39;ve defined
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">let</span> game = <span style="color:#00f">new</span> Game(config)
+</span></span><span style="display:flex;"><span>game.run()
+</span></span></code></pre></div><h2 id="constructors">Constructors</h2>
+<h3 id="constructor">Constructor</h3>
+<blockquote>
+<p><strong>new Game</strong>(<code>config</code>): <code>Game</code></p>
+</blockquote>
+<h4 id="parameters">Parameters</h4>
+<h5 id="config">config</h5>
+<p><a href="../../interfaces/GameConfig"><code>GameConfig</code></a></p>
+<h4 id="returns">Returns</h4>
+<p><code>Game</code></p>
+<h2 id="methods">Methods</h2>
+<h3 id="end">end()</h3>
+<blockquote>
+<p><strong>end</strong>(): <code>void</code></p>
+</blockquote>
+<p>Calling <code>end</code> stops the game loop. You should call it when the game is
+finished. After you call it, the game is rendered one final time. Because
+of this, you often want to <code>return</code> just after you call <code>game.end()</code> to
+make sure any code after it is executed.</p>
+<h4 id="returns-1">Returns</h4>
+<p><code>void</code></p>
+<hr>
+<h3 id="getdot">getDot()</h3>
+<blockquote>
+<p><strong>getDot</strong>(<code>x</code>, <code>y</code>): <a href="../../enumerations/Color"><code>Color</code></a></p>
+</blockquote>
+<p>Returns the color of a dot.</p>
+<h4 id="parameters-1">Parameters</h4>
+<h5 id="x">x</h5>
+<p><code>number</code></p>
+<h5 id="y">y</h5>
+<p><code>number</code></p>
+<h4 id="returns-2">Returns</h4>
+<p><a href="../../enumerations/Color"><code>Color</code></a></p>
+<hr>
+<h3 id="getframecount">getFrameCount()</h3>
+<blockquote>
+<p><strong>getFrameCount</strong>(): <code>number</code></p>
+</blockquote>
+<p>Returns the number of frames that have passed since the game started. The
+speed at which this increases is dependent on the frame rate. The higher
+the frame rate is, the faster this number will increment, and vice versa.
+You can set the frame rate with <a href="../../interfaces/GameConfig#framerate">GameConfig.frameRate</a>.</p>
+<p>You can use this function to do things like increase difficulty as time
+goes on.</p>
+<h4 id="returns-3">Returns</h4>
+<p><code>number</code></p>
+<hr>
+<h3 id="run">run()</h3>
+<blockquote>
+<p><strong>run</strong>(): <code>void</code></p>
+</blockquote>
+<p>Calling <code>run</code> starts the game.</p>
+<h4 id="returns-4">Returns</h4>
+<p><code>void</code></p>
+<hr>
+<h3 id="setdot">setDot()</h3>
+<blockquote>
+<p><strong>setDot</strong>(<code>x</code>, <code>y</code>, <code>val</code>): <code>void</code></p>
+</blockquote>
+<p>Sets the color of a dot.</p>
+<h4 id="parameters-2">Parameters</h4>
+<h5 id="x-1">x</h5>
+<p><code>number</code></p>
+<h5 id="y-1">y</h5>
+<p><code>number</code></p>
+<h5 id="val">val</h5>
+<p><a href="../../enumerations/Color"><code>Color</code></a></p>
+<h4 id="returns-5">Returns</h4>
+<p><code>void</code></p>
+<hr>
+<h3 id="settext">setText()</h3>
+<blockquote>
+<p><strong>setText</strong>(<code>text</code>): <code>void</code></p>
+</blockquote>
+<p>24a2 games have a line of text below the grid which can be set to show
+information to the player. This is commonly used to show instructions or
+the player&rsquo;s score. Use this function to set that text.</p>
+<h4 id="parameters-3">Parameters</h4>
+<h5 id="text">text</h5>
+<p><code>string</code></p>
+<h4 id="returns-6">Returns</h4>
+<p><code>void</code></p>
+ 
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <script
+      data-goatcounter="https://24a2.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </body>
+</html>

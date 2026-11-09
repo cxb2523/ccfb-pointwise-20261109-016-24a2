@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  {{ partial "head.html" }}
+  <body>
+    <h1>{{ .Page.Title }}</h1>
+    <div class="with-sidebar">
+      <div>
+        <!-- intermediary wrapper -->
+        {{ partial "sidebar.html" }}
+        <div>
+          <main>
+            {{- block "main" . }}{{- end }}
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <script
+      data-goatcounter="https://24a2.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </body>
+</html>
